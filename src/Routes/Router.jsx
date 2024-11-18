@@ -17,12 +17,6 @@ export const router = createBrowserRouter([
       {
         path: "/startLearning",
         element: <StartLearning></StartLearning>,
-        children: [
-          {
-            path: "/lesson/:id",
-            element: <LessonDetails></LessonDetails>,
-          },
-        ],
       },
       {
         path: "/tutorials",
@@ -31,6 +25,11 @@ export const router = createBrowserRouter([
       {
         path: "/aboutUs",
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "lesson/:id",
+        element: <LessonDetails></LessonDetails>,
+        loader: () => fetch("/vocabulary.json"),
       },
     ],
   },

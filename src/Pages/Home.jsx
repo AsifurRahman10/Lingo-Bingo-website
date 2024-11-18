@@ -8,7 +8,6 @@ export const Home = () => {
   return (
     <div className="bg-pastelYellow">
       <Banner></Banner>
-
       <About></About>
       <Success></Success>
       <Feedback></Feedback>

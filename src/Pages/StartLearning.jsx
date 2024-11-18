@@ -14,11 +14,11 @@ import { Link } from "react-router-dom";
 
 export const StartLearning = () => {
   return (
-    <div className="bg-pastelYellow">
-      <div className="w-11/12 md:w-10/12 mx-auto py-20">
+    <div className="bg-pastelYellow pb-20">
+      <div className="w-11/12 md:w-10/12 mx-auto pb-10">
         <Title heading={"Lets Start"}></Title>
-        <div className="grid grid-cols-4 gap-6">
-          <Link to={"/lesson/:id"}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Link to={`/lesson/${1}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -33,7 +33,7 @@ export const StartLearning = () => {
             </div>
           </Link>
 
-          <Link>
+          <Link to={`/lesson/${2}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -47,7 +47,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${3}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -61,7 +61,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${4}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -75,7 +75,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${5}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -89,7 +89,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${6}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -103,7 +103,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${7}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -117,7 +117,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${8}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -131,7 +131,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${9}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -145,7 +145,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link>
+          <Link to={`/lesson/${10}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -160,6 +160,29 @@ export const StartLearning = () => {
             </div>
           </Link>
         </div>
+      </div>
+
+      <Title
+        heading={"You can check our video tutorial"}
+        pera={"You can start's by learning by this alphabet learning tutorial"}
+      ></Title>
+
+      <div className="w-9/12 mx-auto">
+        <iframe
+          width="100%"
+          height="600px"
+          src="https://www.youtube.com/embed/xYuPIQMvEsg?si=FWyVpf_iIiB7FT8j"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        <Link to={"/tutorials"}>
+          <button className="btn bg-lightBlue border-none px-8 mt-6 block mx-auto font-bold">
+            View more
+          </button>
+        </Link>
       </div>
     </div>
   );
