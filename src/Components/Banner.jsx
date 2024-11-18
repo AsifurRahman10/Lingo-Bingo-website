@@ -6,7 +6,7 @@ import banner4 from "../assets/banner-4.jpg";
 
 export const Banner = () => {
   return (
-    <div className="carousel w-full max-h-[700px]">
+    <div className="carousel w-full md:max-h-[700px]">
       <div id="slide1" className="carousel-item relative w-full">
         <img src={banner2} className="w-full" />
         <div className="absolute left-10 right-10 top-1/2 transform -translate-y-1/2 px-6">
