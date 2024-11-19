@@ -1,6 +1,7 @@
 import React from "react";
 import english from "../assets/english.png";
 import german from "../assets/german.png";
+import { GiSpeaker } from "react-icons/gi";
 
 export const Vocabularies = ({ singleData }) => {
   const {
@@ -13,7 +14,6 @@ export const Vocabularies = ({ singleData }) => {
     when_to_say,
     example,
   } = singleData;
-  console.log(singleData);
   const bgColor =
     difficulty === "Easy"
       ? "bg-[#A8D5BA]"
@@ -22,6 +22,12 @@ export const Vocabularies = ({ singleData }) => {
       : difficulty === "Hard"
       ? "bg-[#E57373]"
       : "bg-default";
+
+  const pronounceWord = (pronunciation) => {
+    const utterance = new SpeechSynthesisUtterance(pronunciation);
+    utterance.lang = "ja-JP";
+    window.speechSynthesis.speak(utterance);
+  };
   return (
     <div class={`collapse collapse-arrow border-2 border-black p-4 ${bgColor}`}>
       <input type="radio" name="my-accordion-2" />
@@ -38,8 +44,12 @@ export const Vocabularies = ({ singleData }) => {
         </div>
       </div>
       <div class="collapse-content">
-        <p className="font-medium">
+        <p className="font-medium flex items-center">
           Pronunciation : <span className="font-bold">{pronunciation}</span>
+          <GiSpeaker
+            onClick={() => pronounceWord(pronunciation)}
+            className="ml-2 text-2xl"
+          />
         </p>
         <p className="font-medium">
           Part of speech : <span className="font-bold">{part_of_speech}</span>
