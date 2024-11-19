@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/Firebase.init";
 
@@ -30,10 +31,17 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // update profile
+  const updateProfileNamePhoto = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   // observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       if (currentUser) {
         setUser(currentUser);
       } else {
@@ -42,6 +50,7 @@ const AuthProvider = ({ children }) => {
       }
       useLoading(false);
     });
+    return () => unsubscribe();
   }, []);
   const authInfo = {
     handleGoogleLogin,
@@ -49,6 +58,8 @@ const AuthProvider = ({ children }) => {
     emailRegistration,
     user,
     loading,
+    updateProfileNamePhoto,
+    setUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

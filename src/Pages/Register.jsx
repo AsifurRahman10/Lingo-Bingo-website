@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export const Register = () => {
-  const { handleGoogleLogin, emailRegistration } = useContext(AuthContext);
+  const { handleGoogleLogin, emailRegistration, updateProfileNamePhoto } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -25,9 +26,11 @@ export const Register = () => {
       setError("password error");
       return;
     }
-    emailRegistration(email, password)
+    const name = firstName + " " + lastName;
+    console.log(name, photo);
+    emailRegistration(email, password, name, photo)
       .then((res) => {
-        console.log(res);
+        updateProfileNamePhoto(name, photo);
         navigate("/");
       })
       .catch((err) => {
@@ -116,6 +119,7 @@ export const Register = () => {
                   name="fName"
                   placeholder="First Name"
                   className="input input-bordered bg-white border-none text-sm w-full lg:mr-6"
+                  required
                 />
               </div>
               <div>
@@ -124,6 +128,7 @@ export const Register = () => {
                   name="lName"
                   placeholder="Last Name"
                   className="input input-bordered bg-white border-none text-sm w-full"
+                  required
                 />
               </div>
             </div>
@@ -132,12 +137,14 @@ export const Register = () => {
               placeholder="Email"
               name="email"
               className="input input-bordered w-full bg-white border-none text-sm mt-4"
+              required
             />
             <input
               type="text"
               placeholder="Photo Url"
               name="photo"
               className="input input-bordered w-full bg-white border-none text-sm mt-4"
+              required
             />
             <div className="relative">
               <input
@@ -145,6 +152,7 @@ export const Register = () => {
                 placeholder="Enter your password"
                 className="input input-bordered w-full bg-white border-none text-sm mt-4"
                 name="password"
+                required
               />
               <MdOutlineRemoveRedEye
                 onClick={() => setShow(!show)}

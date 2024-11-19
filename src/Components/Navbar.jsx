@@ -1,7 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export const Navbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div className="navbar md:w-10/12 mx-auto py-4">
       <div className="navbar-start">
@@ -99,6 +102,16 @@ export const Navbar = () => {
           >
             <li>about-us</li>
           </NavLink>
+          {user && (
+            <NavLink
+              to={"/myProfile"}
+              className={({ isActive }) =>
+                `text-lg font-medium ${isActive ? "underline" : ""}`
+              }
+            >
+              <li>My Profile</li>
+            </NavLink>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
