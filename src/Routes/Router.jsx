@@ -11,6 +11,7 @@ import { PrivateRouter } from "./PrivateRouter";
 import { MyProfile } from "../Pages/MyProfile";
 import { CurrentProfile } from "../Components/CurrentProfile";
 import { UpdateProfile } from "../Components/UpdateProfile";
+import { ErrorPage } from "../Pages/ErrorPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -68,5 +69,9 @@ export const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
