@@ -1,19 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
 
-export const Login = () => {
-  const { handleGoogleLogin, loginWithEmail } = useContext(AuthContext);
-  const handleLoginWithEmail = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password);
-  };
+export const Register = () => {
   return (
     <div className="bg-pastelYellow py-10">
-      <div className="lg:w-1/2 mx-auto flex bg-lightBlue p-4 rounded-xl items-center">
+      <div className="lg:w-1/2 mx-auto flex gap-y-4 flex-col-reverse lg:flex-row bg-lightBlue p-4 rounded-xl items-center">
         <div className="flex-1">
           <div className="carousel w-full rounded-lg">
             <div id="slide1" className="carousel-item relative w-full">
@@ -74,29 +66,44 @@ export const Login = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1 ml-10">
-          <h1 className="text-4xl font-medium text-black">Login</h1>
+        <div className="flex-1 ml-2 md:ml-10">
+          <h1 className="text-3xl md:text-4xl font-medium text-black">
+            Create an account
+          </h1>
           <p className="text-sm mt-4 text-gray-600 font-semibold">
-            Don't have an account?{" "}
-            <Link to={"/register"} className="underline text-blue-500">
-              Register Now
+            Already have an account?{" "}
+            <Link to={"/login"} className="underline text-blue-500">
+              Log in
             </Link>
           </p>
-
-          <form onSubmit={handleLoginWithEmail}>
-            <div className="flex mt-16 gap-4"></div>
+          <form>
+            <div className="flex mt-16 gap-2 flex-col md:flex-row">
+              <div>
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  className="input input-bordered bg-[#3b364c] border-none text-sm w-full lg:mr-6"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  className="input input-bordered bg-[#3b364c] border-none text-sm"
+                />
+              </div>
+            </div>
             <input
-              type="email"
+              type="text"
               placeholder="Email"
               name="email"
-              className="input input-bordered w-11/12 border-none text-sm mt-4"
-              required
+              className="input input-bordered w-full bg-[#3b364c] border-none text-sm mt-4"
             />
             <div className="relative">
               <input
                 type="text"
                 placeholder="Enter your password"
-                className="input input-bordered w-11/12 border-none text-sm mt-4"
+                className="input input-bordered w-full bg-[#3b364c] border-none text-sm mt-4"
                 name="password"
               />
               <MdOutlineRemoveRedEye
@@ -104,13 +111,9 @@ export const Login = () => {
                 className="absolute top-8 right-14 text-lg"
               />
             </div>
-
-            <p className="mt-4 font-medium underline text-gray-800">
-              Forget password?
-            </p>
             <div className="mt-4 flex gap-4 items-center">
               <input
-                //   onChange={handleCheckBox}
+                // onChange={handleCheckBox}
                 type="checkbox"
                 className="checkbox"
               />
@@ -125,18 +128,18 @@ export const Login = () => {
               </p>
             </div>
             <button className="btn bg-[#6e54b5] text-white rounded-md w-11/12 mt-8">
-              Sign in
+              Create Account
             </button>
           </form>
           <div className="flex w-full flex-col mt-4">
             <div className="divider divider-neutral text-gray-400 text-sm">
-              Or log in with
+              Or register with
             </div>
           </div>
-          <div className="w-full">
+          <div className="flex gap-4">
             <button
-              onClick={handleGoogleLogin}
-              className="btn bg-transparent border-[1px] border-gray-400 w-full font-semibold"
+              //   onClick={handleCreateAccountWithGoogle}
+              className="btn bg-transparent border-[1px] border-gray-400 w-[45%] font-semibold"
             >
               <img
                 className="w-[30px]"
@@ -146,6 +149,16 @@ export const Login = () => {
                 alt=""
               />{" "}
               Google
+            </button>
+            <button className="btn bg-transparent border-[1px] border-gray-400 w-[45%] font-semibold">
+              <img
+                className="w-[30px]"
+                src={
+                  "https://img.icons8.com/?size=100&id=30659&format=png&color=000000"
+                }
+                alt=""
+              />{" "}
+              Apple
             </button>
           </div>
         </div>
