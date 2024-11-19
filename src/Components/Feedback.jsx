@@ -20,14 +20,14 @@ export const Feedback = () => {
               German could be this fun and effective."
             </p>
           </div>
-          <p className="flex flex-col items-end">
+          <div className="flex flex-col items-end">
             <div className="avatar">
               <div className="w-14 rounded-full mt-4">
                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
               </div>
             </div>
             <span>Sarah Müller</span>
-          </p>
+          </div>
         </div>
         <div className="border-2 border-black p-8 pt-12 md:w-[45%]">
           <div className="flex items-start gap-3">
@@ -37,14 +37,14 @@ export const Feedback = () => {
               with my colleagues. Highly recommended!
             </p>
           </div>
-          <p className="flex flex-col items-end">
+          <div className="flex flex-col items-end">
             <div className="avatar">
               <div className="w-14 rounded-full mt-10">
                 <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" />
               </div>
             </div>
             <span>Johannes Schmidt</span>
-          </p>
+          </div>
         </div>
         <div className="border-2 border-black p-8 pt-12 md:w-[45%]">
           <div className="flex items-start gap-3">
@@ -54,14 +54,14 @@ export const Feedback = () => {
               vocabulary daily. Such a game-changer!
             </p>
           </div>
-          <p className="flex flex-col items-end">
+          <div className="flex flex-col items-end">
             <div className="avatar">
               <div className="w-14 rounded-full">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/007/209/020/small_2x/close-up-shot-of-happy-dark-skinned-afro-american-woman-laughs-positively-being-in-good-mood-dressed-in-black-casual-clothes-isolated-on-grey-background-human-emotions-and-feeligs-concept-photo.jpg" />
               </div>
             </div>
             <span className="mt-4">Lisa Becker</span>
-          </p>
+          </div>
         </div>
       </div>
     </div>

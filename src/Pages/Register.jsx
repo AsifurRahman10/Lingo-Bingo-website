@@ -1,11 +1,43 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export const Register = () => {
+  const { handleGoogleLogin, emailRegistration } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const handleGoogleLoginF = () => {
+    handleGoogleLogin().then((res) => {
+      navigate("/");
+    });
+  };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    setError("");
+    const firstName = e.target.fName.value;
+    const lastName = e.target.lName.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
+      setError("password error");
+      return;
+    }
+    emailRegistration(email, password)
+      .then((res) => {
+        console.log(res);
+        navigate("/");
+      })
+      .catch((err) => {
+        const message = err.message.split(":");
+        setError(message[1]);
+      });
+  };
   return (
     <div className="bg-pastelYellow py-10">
-      <div className="lg:w-1/2 mx-auto flex gap-y-4 flex-col-reverse lg:flex-row bg-lightBlue p-4 rounded-xl items-center">
+      <div className="w-11/12 lg:w-1/2 mx-auto flex gap-y-4 flex-col-reverse md:flex-row bg-lightBlue p-4 rounded-xl items-center">
         <div className="flex-1">
           <div className="carousel w-full rounded-lg">
             <div id="slide1" className="carousel-item relative w-full">
@@ -76,20 +108,22 @@ export const Register = () => {
               Log in
             </Link>
           </p>
-          <form>
+          <form onSubmit={handleRegister}>
             <div className="flex mt-16 gap-2 flex-col md:flex-row">
               <div>
                 <input
                   type="text"
+                  name="fName"
                   placeholder="First Name"
-                  className="input input-bordered bg-[#3b364c] border-none text-sm w-full lg:mr-6"
+                  className="input input-bordered bg-white border-none text-sm w-full lg:mr-6"
                 />
               </div>
               <div>
                 <input
                   type="text"
+                  name="lName"
                   placeholder="Last Name"
-                  className="input input-bordered bg-[#3b364c] border-none text-sm"
+                  className="input input-bordered bg-white border-none text-sm w-full"
                 />
               </div>
             </div>
@@ -97,37 +131,28 @@ export const Register = () => {
               type="text"
               placeholder="Email"
               name="email"
-              className="input input-bordered w-full bg-[#3b364c] border-none text-sm mt-4"
+              className="input input-bordered w-full bg-white border-none text-sm mt-4"
+            />
+            <input
+              type="text"
+              placeholder="Photo Url"
+              name="photo"
+              className="input input-bordered w-full bg-white border-none text-sm mt-4"
             />
             <div className="relative">
               <input
-                type="text"
+                type={show ? "text" : "password"}
                 placeholder="Enter your password"
-                className="input input-bordered w-full bg-[#3b364c] border-none text-sm mt-4"
+                className="input input-bordered w-full bg-white border-none text-sm mt-4"
                 name="password"
               />
               <MdOutlineRemoveRedEye
                 onClick={() => setShow(!show)}
-                className="absolute top-8 right-14 text-lg"
+                className="absolute top-8 right-7 text-lg"
               />
             </div>
-            <div className="mt-4 flex gap-4 items-center">
-              <input
-                // onChange={handleCheckBox}
-                type="checkbox"
-                className="checkbox"
-              />
-              <p>
-                I agree with the{" "}
-                <Link
-                  to={"https://github.com/AsifurRahman10"}
-                  className="text-blue-500 underline font-semibold"
-                >
-                  terms and condition
-                </Link>
-              </p>
-            </div>
-            <button className="btn bg-[#6e54b5] text-white rounded-md w-11/12 mt-8">
+            {error && <p className="font-bold text-red-500 mt-4">{error}</p>}
+            <button className="btn bg-[#6e54b5] text-white rounded-md mt-6 w-full">
               Create Account
             </button>
           </form>
@@ -136,10 +161,10 @@ export const Register = () => {
               Or register with
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="w-full">
             <button
-              //   onClick={handleCreateAccountWithGoogle}
-              className="btn bg-transparent border-[1px] border-gray-400 w-[45%] font-semibold"
+              onClick={handleGoogleLoginF}
+              className="btn bg-transparent border-[1px] border-gray-400 font-semibold w-full"
             >
               <img
                 className="w-[30px]"
@@ -149,16 +174,6 @@ export const Register = () => {
                 alt=""
               />{" "}
               Google
-            </button>
-            <button className="btn bg-transparent border-[1px] border-gray-400 w-[45%] font-semibold">
-              <img
-                className="w-[30px]"
-                src={
-                  "https://img.icons8.com/?size=100&id=30659&format=png&color=000000"
-                }
-                alt=""
-              />{" "}
-              Apple
             </button>
           </div>
         </div>
