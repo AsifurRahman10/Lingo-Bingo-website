@@ -7,6 +7,7 @@ import { AboutUs } from "../Pages/AboutUs";
 import { LessonDetails } from "../Pages/LessonDetails";
 import { Login } from "../Pages/Login";
 import { Register } from "../Pages/Register";
+import { PrivateRouter } from "./PrivateRouter";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +31,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "lesson/:id",
-        element: <LessonDetails></LessonDetails>,
+        element: (
+          <PrivateRouter>
+            <LessonDetails></LessonDetails>
+          </PrivateRouter>
+        ),
         loader: () => fetch("/vocabulary.json"),
       },
       {

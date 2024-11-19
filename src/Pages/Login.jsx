@@ -1,24 +1,36 @@
 import React, { useContext, useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export const Login = () => {
   const { handleGoogleLogin, loginWithEmail } = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  console.log(location);
   const navigate = useNavigate();
   const handleGoogleLoginF = () => {
     handleGoogleLogin().then((res) => {
+      if (location.state) {
+        return navigate(location.state.from);
+      }
       navigate("/");
     });
   };
   const handleLoginWithEmail = (e) => {
     e.preventDefault();
+    setError("");
     const email = e.target.email.value;
     const password = e.target.password.value;
-    loginWithEmail(email, password).then((res) => {
-      console.log(res);
-    });
+    loginWithEmail(email, password)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        const message = err.message.split(":");
+        setError(message[1]);
+      });
   };
   return (
     <div className="bg-pastelYellow py-10">
@@ -114,8 +126,8 @@ export const Login = () => {
                 className="absolute top-8 right-6 md:right-10 lg:right-14 text-lg"
               />
             </div>
-
-            <p className="mt-4 font-medium underline text-gray-800">
+            {error && <p className="font-bold text-red-500 mt-4">{error}</p>}
+            <p className="mt-2 font-medium underline text-gray-800">
               Forget password?
             </p>
             <button className="btn bg-[#6e54b5] text-white rounded-md w-full md:w-11/12 mt-8">

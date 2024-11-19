@@ -173,10 +173,10 @@ export const StartLearning = () => {
           height="600px"
           src="https://www.youtube.com/embed/xYuPIQMvEsg?si=FWyVpf_iIiB7FT8j"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
         ></iframe>
         <Link to={"/tutorials"}>
           <button className="btn bg-lightBlue border-none px-8 mt-6 block mx-auto font-bold">
