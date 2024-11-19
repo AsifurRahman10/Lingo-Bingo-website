@@ -102,7 +102,7 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link>
+        <Link to={"/login"}>
           <button className="btn bg-pastelYellow border-none px-8">
             Login
           </button>

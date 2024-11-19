@@ -5,6 +5,7 @@ import { StartLearning } from "../Pages/StartLearning";
 import { Tutorials } from "../Pages/Tutorials";
 import { AboutUs } from "../Pages/AboutUs";
 import { LessonDetails } from "../Pages/LessonDetails";
+import { Login } from "../Pages/Login";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         path: "lesson/:id",
         element: <LessonDetails></LessonDetails>,
         loader: () => fetch("/vocabulary.json"),
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },
