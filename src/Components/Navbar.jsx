@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, handleSignout } = useContext(AuthContext);
   return (
     <div className="navbar md:w-10/12 mx-auto py-4">
       <div className="navbar-start">
@@ -61,6 +61,16 @@ export const Navbar = () => {
             >
               <li>about-us</li>
             </NavLink>
+            {user && (
+              <NavLink
+                to={"/myProfile"}
+                className={({ isActive }) =>
+                  `text-lg font-medium ${isActive ? "underline" : ""}`
+                }
+              >
+                <li>My Profile</li>
+              </NavLink>
+            )}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl gap-0">
@@ -115,11 +125,20 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to={"/login"}>
-          <button className="btn bg-pastelYellow border-none px-8">
-            Login
+        {user ? (
+          <button
+            onClick={handleSignout}
+            className="btn bg-pastelYellow border-none px-8"
+          >
+            Logout
           </button>
-        </Link>
+        ) : (
+          <Link to={"/login"}>
+            <button className="btn bg-pastelYellow border-none px-8">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

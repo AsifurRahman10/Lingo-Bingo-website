@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Loading } from "../Components/Loading";
 import { NavLink, Outlet } from "react-router-dom";
 
 export const MyProfile = () => {
   const { user, loading } = useContext(AuthContext);
-  if (loading) {
-    return <Loading></Loading>;
-  }
+  console.log(user, loading);
   if (user)
     return (
       <div className=" bg-pastelYellow min-h-[calc(100vh-336px)]">
@@ -20,7 +17,8 @@ export const MyProfile = () => {
             />
             <div className="flex flex-col mt-4">
               <NavLink
-                to={"/myProfile/profile"}
+                to="/myProfile"
+                end
                 className={({ isActive }) => (isActive ? "bg-lightBlue" : "")}
               >
                 <button className="h-14 border-2 border-black w-full text-xl font-bold">

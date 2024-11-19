@@ -51,10 +51,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myProfile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRouter>
+            <MyProfile></MyProfile>
+          </PrivateRouter>
+        ),
         children: [
           {
-            path: "/myProfile/profile",
+            path: "/myProfile",
             element: <CurrentProfile></CurrentProfile>,
           },
           {

@@ -4,12 +4,8 @@ import { Loading } from "./Loading";
 import { useNavigate } from "react-router-dom";
 
 export const UpdateProfile = () => {
-  const { user, setUser, loading, updateProfileNamePhoto } =
-    useContext(AuthContext);
+  const { user, setUser, updateProfileNamePhoto } = useContext(AuthContext);
   const navigate = useNavigate();
-  if (loading) {
-    return <Loading></Loading>;
-  }
   const handleUpdateInfo = (e) => {
     e.preventDefault();
     const name = e.target.name.value;

@@ -3,10 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Loading } from "./Loading";
 
 export const CurrentProfile = () => {
-  const { user, loading } = useContext(AuthContext);
-  if (loading) {
-    return <Loading></Loading>;
-  }
+  const { user } = useContext(AuthContext);
   return (
     <div className="ml-10">
       <h1 className="text-3xl font-bold pt-20">
