@@ -18,7 +18,7 @@ export const StartLearning = () => {
       <div className="w-11/12 md:w-10/12 mx-auto pb-10">
         <Title heading={"Lets Start"}></Title>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Link to={`/lesson/${1}`}>
+          <Link to={`/lesson/${1}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -33,7 +33,7 @@ export const StartLearning = () => {
             </div>
           </Link>
 
-          <Link to={`/lesson/${2}`}>
+          <Link to={`/lesson/${2}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -47,7 +47,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${3}`}>
+          <Link to={`/lesson/${3}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -61,7 +61,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${4}`}>
+          <Link to={`/lesson/${4}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -75,7 +75,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${5}`}>
+          <Link to={`/lesson/${5}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -89,7 +89,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${6}`}>
+          <Link to={`/lesson/${6}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -103,7 +103,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${7}`}>
+          <Link to={`/lesson/${7}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -117,7 +117,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${8}`}>
+          <Link to={`/lesson/${8}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -131,7 +131,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${9}`}>
+          <Link to={`/lesson/${9}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -145,7 +145,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${10}`}>
+          <Link to={`/lesson/${10}`} data-aos="fade-left">
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -167,7 +167,7 @@ export const StartLearning = () => {
         pera={"You can start's by learning by this alphabet learning tutorial"}
       ></Title>
 
-      <div className="w-9/12 mx-auto">
+      <div className="w-9/12 mx-auto" data-aos="fade-left">
         <iframe
           width="100%"
           height="600px"

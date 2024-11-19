@@ -12,6 +12,7 @@ import { MyProfile } from "../Pages/MyProfile";
 import { CurrentProfile } from "../Components/CurrentProfile";
 import { UpdateProfile } from "../Components/UpdateProfile";
 import { ErrorPage } from "../Pages/ErrorPage";
+
 export const router = createBrowserRouter([
   {
     path: "/",

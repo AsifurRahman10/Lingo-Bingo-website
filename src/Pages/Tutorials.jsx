@@ -5,7 +5,7 @@ export const Tutorials = () => {
   return (
     <div className="bg-pastelYellow pb-20">
       <div className="w-11/12 md:w-9/12 mx-auto pb-10 space-y-6">
-        <div>
+        <div data-aos="fade-left">
           <h1 className="text-2xl py-4 font-bold">
             LEARN GERMAN FOR BEGINNERS LESSONS - 1
           </h1>
@@ -21,7 +21,7 @@ export const Tutorials = () => {
             allowfullscreen
           ></iframe>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <h1 className="text-2xl py-4 font-bold">
             LEARN GERMAN FOR BEGINNERS LESSONS - 2
           </h1>
@@ -37,7 +37,7 @@ export const Tutorials = () => {
             allowfullscreen
           ></iframe>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <h1 className="text-2xl py-4 font-bold">
             LEARN GERMAN FOR BEGINNERS LESSONS - 3
           </h1>
@@ -53,7 +53,7 @@ export const Tutorials = () => {
             allowfullscreen
           ></iframe>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <h1 className="text-2xl py-4 font-bold">
             LEARN GERMAN FOR BEGINNERS LESSONS - 4
           </h1>
@@ -69,7 +69,7 @@ export const Tutorials = () => {
             allowfullscreen
           ></iframe>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <h1 className="text-2xl py-4 font-bold">
             LEARN GERMAN FOR BEGINNERS LESSONS - 5
           </h1>
@@ -85,7 +85,7 @@ export const Tutorials = () => {
             allowfullscreen
           ></iframe>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <h1 className="text-2xl py-4 font-bold">
             LEARN GERMAN FOR BEGINNERS LESSONS - 6
           </h1>
