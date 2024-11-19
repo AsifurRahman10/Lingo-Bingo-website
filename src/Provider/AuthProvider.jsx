@@ -12,17 +12,21 @@ const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, useLoading] = useState(true);
   // google login
   const handleGoogleLogin = () => {
+    useLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
   //   email login
   const loginWithEmail = (email, password) => {
+    useLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //   register with email
   const emailRegistration = (email, password) => {
+    useLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -34,7 +38,9 @@ const AuthProvider = ({ children }) => {
         setUser(currentUser);
       } else {
         setUser(null);
+        useLoading(true);
       }
+      useLoading(false);
     });
   }, []);
   const authInfo = {
@@ -42,6 +48,7 @@ const AuthProvider = ({ children }) => {
     loginWithEmail,
     emailRegistration,
     user,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
