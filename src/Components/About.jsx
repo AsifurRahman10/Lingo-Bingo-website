@@ -12,7 +12,7 @@ export const About = () => {
           "Our mission is to make learning German fun, interactive, and accessible to everyone, regardless of their experience level."
         }
       ></Title>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2  gap-6">
         <div className="flex items-center bg-pastelYellow p-4 gap-4 rounded-lg">
           <RiTeamLine className="text-8xl" />
           <div>

@@ -167,10 +167,13 @@ export const StartLearning = () => {
         pera={"You can start's by learning by this alphabet learning tutorial"}
       ></Title>
 
-      <div className="w-9/12 mx-auto" data-aos="fade-left">
+      <div
+        className="w-9/12 md:h-[300px] lg:h-[600px] mx-auto"
+        data-aos="fade-left"
+      >
         <iframe
           width="100%"
-          height="600px"
+          height="100%"
           src="https://www.youtube.com/embed/xYuPIQMvEsg?si=FWyVpf_iIiB7FT8j"
           title="YouTube video player"
           frameBorder="0"
