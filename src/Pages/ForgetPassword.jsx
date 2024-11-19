@@ -1,36 +1,17 @@
-import React, { useContext, useState } from "react";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { Link, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
-export const Login = () => {
-  const { handleGoogleLogin, loginWithEmail, handleInputChange, emailValue } =
-    useContext(AuthContext);
-  const [show, setShow] = useState(false);
-  const [error, setError] = useState("");
-  const location = useLocation();
-  const navigate = useNavigate();
-  const handleGoogleLoginF = () => {
-    handleGoogleLogin().then((res) => {
-      if (location.state) {
-        return navigate(location.state.from);
-      }
-      navigate("/");
-    });
-  };
-  const handleLoginWithEmail = (e) => {
+export const ForgetPassword = () => {
+  const { emailValue, forgetPassword } = useContext(AuthContext);
+  const handleForgetPassword = (e) => {
     e.preventDefault();
-    setError("");
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    loginWithEmail(email, password)
-      .then((res) => {
-        navigate("/");
-      })
-      .catch((err) => {
-        const message = err.message.split(":");
-        setError(message[1]);
-      });
+    const email = emailValue
+      ? emailValue.trim()
+      : e.target.elements.email.value.trim();
+    forgetPassword(email).then((res) => {
+      window.location.href = "https://mail.google.com/mail/u/0/";
+    });
   };
   return (
     <div className="bg-pastelYellow py-10">
@@ -96,7 +77,7 @@ export const Login = () => {
           </div>
         </div>
         <div className="flex-1 md:ml-10">
-          <h1 className="text-4xl font-medium text-black">Login</h1>
+          <h1 className="text-4xl font-medium text-black">Reset password</h1>
           <p className="text-sm mt-4 text-gray-600 font-semibold">
             Don't have an account?{" "}
             <Link to={"/register"} className="underline text-blue-500">
@@ -104,59 +85,20 @@ export const Login = () => {
             </Link>
           </p>
 
-          <form onSubmit={handleLoginWithEmail}>
-            <div className="flex mt-6 md:mt-16 gap-4"></div>
+          <form onSubmit={handleForgetPassword}>
             <input
-              onChange={handleInputChange}
               type="email"
-              placeholder="Email"
+              placeholder={emailValue || "Enter your email"}
               name="email"
-              className="input input-bordered w-full md:w-11/12 border-none text-sm mt-4"
-              required
+              className={`input input-bordered w-full md:w-11/12 border-none text-sm mt-4 ${
+                emailValue ? "placeholder:text-black" : ""
+              }`}
+              //   required
             />
-            <div className="relative">
-              <input
-                type={show ? "text" : "password"}
-                placeholder="Enter your password"
-                className="input input-bordered w-full md:w-11/12 border-none text-sm mt-4"
-                name="password"
-                required
-              />
-              <MdOutlineRemoveRedEye
-                onClick={() => setShow(!show)}
-                className="absolute top-8 right-6 md:right-10 lg:right-14 text-lg"
-              />
-            </div>
-            {error && <p className="font-bold text-red-500 mt-4">{error}</p>}
-            <Link to={"/forgetPassword"}>
-              <p className="mt-2 font-medium underline text-gray-800">
-                Forget password?
-              </p>
-            </Link>
-            <button className="btn bg-[#6e54b5] text-white rounded-md w-full md:w-11/12 mt-8">
-              Sign in
+            <button className="btn mt-6 bg-[#6e54b5] text-white border-none block w-11/12">
+              Reset password
             </button>
           </form>
-          <div className="flex w-11/12 flex-col mt-4 ">
-            <div className="divider divider-neutral text-gray-400 text-sm">
-              Or log in with
-            </div>
-          </div>
-          <div className="">
-            <button
-              onClick={handleGoogleLoginF}
-              className="btn bg-transparent border-[1px] border-gray-400 font-semibold w-full md:w-11/12"
-            >
-              <img
-                className="w-[30px]"
-                src={
-                  "https://img.icons8.com/?size=100&id=V5cGWnc9R4xj&format=png&color=000000"
-                }
-                alt=""
-              />{" "}
-              Google
-            </button>
-          </div>
         </div>
       </div>
     </div>

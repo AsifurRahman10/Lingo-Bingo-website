@@ -10,6 +10,7 @@ export default {
         lightBlue: '#A2D2DF', // Light blue
         pastelYellow: '#F6EFBD', // Soft yellow
         mutedRose: '#BC7C7C', // Muted rose
+        placeholderPopping: '#ff5733',
       },
     },
   },
