@@ -12,7 +12,10 @@ export const Feedback = () => {
         }
       ></Title>
       <div className="flex gap-6 md:flex-wrap lg:flex-nowrap md:justify-center mt-10 flex-col md:flex-row">
-        <div className="border-2 border-black p-8 pt-12 md:w-[45%]">
+        <div
+          className="border-2 border-black p-8 pt-12 md:w-[45%]"
+          data-aos="flip-left"
+        >
           <div className="flex items-start gap-3">
             <FaQuoteLeft className="text-orange-500 text-6xl -translate-y-8" />
             <p>
@@ -29,7 +32,10 @@ export const Feedback = () => {
             <span>Sarah Müller</span>
           </div>
         </div>
-        <div className="border-2 border-black p-8 pt-12 md:w-[45%]">
+        <div
+          className="border-2 border-black p-8 pt-12 md:w-[45%]"
+          data-aos="flip-left"
+        >
           <div className="flex items-start gap-3">
             <FaQuoteLeft className="text-orange-500 text-6xl -translate-y-8" />
             <p>
@@ -46,7 +52,10 @@ export const Feedback = () => {
             <span>Johannes Schmidt</span>
           </div>
         </div>
-        <div className="border-2 border-black p-8 pt-12 md:w-[45%]">
+        <div
+          className="border-2 border-black p-8 pt-12 md:w-[45%]"
+          data-aos="flip-left"
+        >
           <div className="flex items-start gap-3">
             <FaQuoteLeft className="text-orange-500 text-6xl -translate-y-8" />
             <p>

@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import { Home } from "../Pages/Home";
 import { StartLearning } from "../Pages/StartLearning";
 import { Tutorials } from "../Pages/Tutorials";
-import { AboutUs } from "../Pages/AboutUs";
 import { LessonDetails } from "../Pages/LessonDetails";
 import { Login } from "../Pages/Login";
 import { Register } from "../Pages/Register";
@@ -29,11 +28,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/tutorials",
-        element: <Tutorials></Tutorials>,
-      },
-      {
-        path: "/aboutUs",
-        element: <AboutUs></AboutUs>,
+        element: (
+          <PrivateRouter>
+            <Tutorials></Tutorials>
+          </PrivateRouter>
+        ),
       },
       {
         path: "lesson/:id",

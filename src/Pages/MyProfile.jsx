@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { NavLink, Outlet } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const MyProfile = () => {
   const { user } = useContext(AuthContext);
   if (user)
     return (
       <div className=" bg-pastelYellow min-h-[calc(100vh-336px)]">
+        <HelmetProvider>
+          <Helmet>
+            <title>Welcome {user.displayName} - Lingo Bingo</title>
+          </Helmet>
+        </HelmetProvider>
         <div className="grid grid-cols-6 w-10/12 mx-auto">
           <div className="col-span-2">
             <img

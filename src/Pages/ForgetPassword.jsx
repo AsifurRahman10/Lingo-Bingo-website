@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const ForgetPassword = () => {
   const { emailValue, forgetPassword } = useContext(AuthContext);
@@ -9,12 +10,21 @@ export const ForgetPassword = () => {
     const email = emailValue
       ? emailValue.trim()
       : e.target.elements.email.value.trim();
-    forgetPassword(email).then((res) => {
-      window.location.href = "https://mail.google.com/mail/u/0/";
-    });
+    forgetPassword(email)
+      .then((res) => {
+        window.location.href = "https://mail.google.com/mail/u/0/";
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
   return (
     <div className="bg-pastelYellow py-10">
+      <HelmetProvider>
+        <Helmet>
+          <title>Forget Password - Lingo Bingo</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="w-11/12 lg:w-1/2 mx-auto flex gap-y-4 flex-col-reverse md:flex-row bg-lightBlue p-4 rounded-xl items-center">
         <div className="flex-1">
           <div className="carousel w-full rounded-lg">
@@ -95,7 +105,7 @@ export const ForgetPassword = () => {
               }`}
               //   required
             />
-            <button className="btn mt-6 bg-[#6e54b5] text-white border-none block w-11/12">
+            <button className="btn mt-6 bg-[#6e54b5] text-white border-none block w-full lg:w-11/12">
               Reset password
             </button>
           </form>

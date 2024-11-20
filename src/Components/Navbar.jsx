@@ -53,14 +53,7 @@ export const Navbar = () => {
             >
               <li>Tutorials</li>
             </NavLink>
-            <NavLink
-              to={"/aboutUs"}
-              className={({ isActive }) =>
-                `font-medium ${isActive ? "underline" : ""}`
-              }
-            >
-              <li>about-us</li>
-            </NavLink>
+
             {user && (
               <NavLink
                 to={"/myProfile"}
@@ -103,14 +96,6 @@ export const Navbar = () => {
             }
           >
             <li>Tutorials</li>
-          </NavLink>
-          <NavLink
-            to={"/aboutUs"}
-            className={({ isActive }) =>
-              `text-lg font-medium ${isActive ? "underline" : ""}`
-            }
-          >
-            <li>about-us</li>
           </NavLink>
           {user && (
             <NavLink
