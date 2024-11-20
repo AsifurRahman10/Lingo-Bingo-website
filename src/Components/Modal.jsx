@@ -7,9 +7,9 @@ export const Modal = ({ word, meaning, when_to_say, example, onClose }) => {
         <h3 className="text-lg mb-4">
           Word: <span className="font-bold">{word}</span>
         </h3>
-        <p className="mb-4">Meaning: {meaning}</p>
-        <p className="mb-4">When to say: {when_to_say}</p>
-        <p>Example: {example}</p>
+        <p className="mb-4">Meaning : {meaning}</p>
+        <p className="mb-4">When to say : {when_to_say}</p>
+        <p>Example : {example}</p>
         <div className="mt-4 flex justify-center">
           <button
             onClick={onClose}
