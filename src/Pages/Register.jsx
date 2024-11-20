@@ -11,6 +11,7 @@ export const Register = () => {
     updateProfileNamePhoto,
     setUser,
     user,
+    useLoading,
   } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);
@@ -42,6 +43,7 @@ export const Register = () => {
             photoURL: photo,
           });
           navigate("/");
+          useLoading(false);
         });
       })
       .catch((err) => {

@@ -58,7 +58,7 @@ export const Navbar = () => {
               <NavLink
                 to={"/myProfile"}
                 className={({ isActive }) =>
-                  `text-lg font-medium ${isActive ? "underline" : ""}`
+                  `font-medium ${isActive ? "underline" : ""}`
                 }
               >
                 <li>My Profile</li>

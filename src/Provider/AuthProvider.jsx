@@ -53,17 +53,16 @@ const AuthProvider = ({ children }) => {
   const forgetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
-
   // signout
   const handleSignout = () => {
     signOut(auth);
   };
-  console.log(user);
   // observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        console.log(currentUser);
       } else {
         setUser(null);
       }

@@ -168,7 +168,7 @@ export const StartLearning = () => {
         </div>
       </div>
 
-      <div className="w-9/12 mx-auto pb-20">
+      <div className="w-11/12 md:w-9/12 mx-auto pb-20">
         <Title
           heading={"You can check our video tutorial"}
           pera={
@@ -179,7 +179,7 @@ export const StartLearning = () => {
         <iframe
           width="100%"
           height="100%"
-          className="h-[200px] md:h-[300px] lg:h-[600px]"
+          className="h-[250px] md:h-[300px] lg:h-[600px]"
           src="https://www.youtube.com/embed/xYuPIQMvEsg?si=FWyVpf_iIiB7FT8j"
           title="YouTube video player"
           frameBorder="0"

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Loading } from "./Loading";
 import { useNavigate } from "react-router-dom";
 
 export const UpdateProfile = () => {
@@ -22,8 +21,8 @@ export const UpdateProfile = () => {
     });
   };
   return (
-    <div className="ml-10">
-      <h1 className="text-3xl font-bold pt-20">Update Profile</h1>
+    <div className="md:ml-10">
+      <h1 className="text-3xl font-bold pt-10 md:pt-20">Update Profile</h1>
       <h2 className="mt-6 font-bold text-lg">Name : </h2>
       <form onSubmit={handleUpdateInfo}>
         <input

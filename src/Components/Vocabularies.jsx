@@ -13,7 +13,6 @@ export const Vocabularies = ({ singleData }) => {
     meaning,
     part_of_speech,
     difficulty,
-    lesson_no,
     when_to_say,
     example,
   } = singleData;
