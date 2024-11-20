@@ -17,6 +17,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, useLoading] = useState(true);
   const [emailValue, setEmailValue] = useState("");
+  const [userProfile, setUserProfile] = useState(null);
   // google login
   const handleGoogleLogin = () => {
     useLoading(true);
@@ -57,7 +58,7 @@ const AuthProvider = ({ children }) => {
   const handleSignout = () => {
     signOut(auth);
   };
-
+  console.log(user);
   // observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -82,6 +83,9 @@ const AuthProvider = ({ children }) => {
     handleInputChange,
     emailValue,
     forgetPassword,
+    useLoading,
+    setUserProfile,
+    userProfile,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

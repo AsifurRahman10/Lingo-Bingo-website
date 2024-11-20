@@ -2,10 +2,16 @@ import React, { useContext, useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Register = () => {
-  const { handleGoogleLogin, emailRegistration, updateProfileNamePhoto } =
-    useContext(AuthContext);
+  const {
+    handleGoogleLogin,
+    emailRegistration,
+    updateProfileNamePhoto,
+    setUser,
+    user,
+  } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -27,11 +33,16 @@ export const Register = () => {
       return;
     }
     const name = firstName + " " + lastName;
-    console.log(name, photo);
     emailRegistration(email, password, name, photo)
       .then((res) => {
-        updateProfileNamePhoto(name, photo);
-        navigate("/");
+        updateProfileNamePhoto(name, photo).then((res) => {
+          setUser({
+            ...user,
+            displayName: name,
+            photoURL: photo,
+          });
+          navigate("/");
+        });
       })
       .catch((err) => {
         const message = err.message.split(":");
@@ -40,6 +51,11 @@ export const Register = () => {
   };
   return (
     <div className="bg-pastelYellow py-10">
+      <HelmetProvider>
+        <Helmet>
+          <title>Register - Lingo Bingo</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="w-11/12 lg:w-1/2 mx-auto flex gap-y-4 flex-col-reverse md:flex-row bg-lightBlue p-4 rounded-xl items-center">
         <div className="flex-1">
           <div className="carousel w-full rounded-lg">

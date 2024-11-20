@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link, useNavigate, useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Login = () => {
   const { handleGoogleLogin, loginWithEmail, handleInputChange, emailValue } =
@@ -34,6 +35,11 @@ export const Login = () => {
   };
   return (
     <div className="bg-pastelYellow py-10">
+      <HelmetProvider>
+        <Helmet>
+          <title>Login - Lingo Bingo</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="w-11/12 lg:w-1/2 mx-auto flex gap-y-4 flex-col-reverse md:flex-row bg-lightBlue p-4 rounded-xl items-center">
         <div className="flex-1">
           <div className="carousel w-full rounded-lg">

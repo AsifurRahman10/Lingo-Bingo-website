@@ -4,7 +4,8 @@ import { Loading } from "./Loading";
 import { useNavigate } from "react-router-dom";
 
 export const UpdateProfile = () => {
-  const { user, setUser, updateProfileNamePhoto } = useContext(AuthContext);
+  const { user, setUser, updateProfileNamePhoto, useLoading } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const handleUpdateInfo = (e) => {
     e.preventDefault();
@@ -16,7 +17,8 @@ export const UpdateProfile = () => {
         displayName: name,
         photoURL: photo,
       });
-      return navigate("/myProfile/profile");
+      useLoading(false);
+      return navigate("/myProfile");
     });
   };
   return (
