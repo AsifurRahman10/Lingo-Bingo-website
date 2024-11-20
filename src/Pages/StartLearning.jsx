@@ -15,7 +15,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const StartLearning = () => {
   return (
-    <div className="bg-pastelYellow pb-20">
+    <div className="bg-pastelYellow pb-0 lg:pb-20">
       <HelmetProvider>
         <Helmet>
           <title>Start learning - Lingo Bingo</title>
@@ -168,15 +168,18 @@ export const StartLearning = () => {
         </div>
       </div>
 
-      <Title
-        heading={"You can check our video tutorial"}
-        pera={"You can start's by learning by this alphabet learning tutorial"}
-      ></Title>
+      <div className="w-9/12 mx-auto pb-20">
+        <Title
+          heading={"You can check our video tutorial"}
+          pera={
+            "You can start's by learning by this alphabet learning tutorial"
+          }
+        ></Title>
 
-      <div className="w-9/12 md:h-[300px] lg:h-[600px] mx-auto pb-20">
         <iframe
           width="100%"
           height="100%"
+          className="h-[200px] md:h-[300px] lg:h-[600px]"
           src="https://www.youtube.com/embed/xYuPIQMvEsg?si=FWyVpf_iIiB7FT8j"
           title="YouTube video player"
           frameBorder="0"

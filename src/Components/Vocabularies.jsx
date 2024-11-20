@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import english from "../assets/english.png";
 import german from "../assets/german.png";
 import { GiSpeaker } from "react-icons/gi";
+import { Modal } from "./Modal";
 
 export const Vocabularies = ({ singleData }) => {
+  const [modalData, setModalData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     word,
     pronunciation,
@@ -28,10 +31,21 @@ export const Vocabularies = ({ singleData }) => {
     utterance.lang = "ja-JP";
     window.speechSynthesis.speak(utterance);
   };
+
+  const handleModal = () => {
+    setModalData({ word, meaning, when_to_say, example });
+    setIsModalOpen(true);
+  };
+  const handleModalClose = () => {
+    setModalData(null);
+    setIsModalOpen(false);
+  };
   return (
-    <div class={`collapse collapse-arrow border-2 border-black p-4 ${bgColor}`}>
+    <div
+      className={`collapse collapse-arrow border-2 border-black p-4 ${bgColor}`}
+    >
       <input type="radio" name="my-accordion-2" />
-      <div class="collapse-title text-xl font-medium">
+      <div className="collapse-title text-xl font-medium">
         <div className="flex justify-between">
           <span className="flex items-center gap-2">
             <img className="w-10 h-10 rounded-full" src={german} alt="" />
@@ -43,7 +57,7 @@ export const Vocabularies = ({ singleData }) => {
           </span>
         </div>
       </div>
-      <div class="collapse-content">
+      <div className="collapse-content">
         <p className="font-medium flex items-center">
           Pronunciation : <span className="font-bold">{pronunciation}</span>
           <GiSpeaker
@@ -54,13 +68,28 @@ export const Vocabularies = ({ singleData }) => {
         <p className="font-medium">
           Part of speech : <span className="font-bold">{part_of_speech}</span>
         </p>
-        <p className="font-medium">
+        {/* <p className="font-medium">
           When to say : <span className="font-bold">{when_to_say}</span>
         </p>
         <p className="font-medium">
           Example : <span className="font-bold">{example}</span>
-        </p>
+        </p> */}
+        <button
+          onClick={handleModal}
+          className="btn mt-2 bg-transparent border-black"
+        >
+          When to say
+        </button>
       </div>
+      {isModalOpen && (
+        <Modal
+          word={modalData?.word}
+          meaning={modalData?.meaning}
+          when_to_say={modalData?.when_to_say}
+          example={modalData?.example}
+          onClose={handleModalClose}
+        />
+      )}
     </div>
   );
 };
