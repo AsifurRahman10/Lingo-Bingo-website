@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
-    <div>
-      <footer className="footer text-base-content p-10 w-11/12 md:w-10/12 mx-auto">
+    <div className="bg-[#C1D5D9] py-6">
+      <footer className="footer  p-10 w-11/12 md:w-10/12 mx-auto">
         <nav>
           <h6 className="footer-title">Contact Details</h6>
           <a className="link link-hover">Email: info@example.com</a>

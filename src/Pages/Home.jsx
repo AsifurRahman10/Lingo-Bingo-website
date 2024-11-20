@@ -6,17 +6,18 @@ import { Feedback } from "../Components/Feedback";
 
 export const Home = () => {
   return (
+    //
     <div className="bg-pastelYellow">
-      <div data-aos="fade-left">
+      <div>
         <Banner></Banner>
       </div>
-      <div data-aos="fade-left">
+      <div>
         <About></About>
       </div>
-      <div data-aos="fade-left">
+      <div>
         <Success></Success>
       </div>
-      <div data-aos="fade-left">
+      <div>
         {" "}
         <Feedback></Feedback>
       </div>

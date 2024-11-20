@@ -6,7 +6,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 export const Navbar = () => {
   const { user, handleSignout } = useContext(AuthContext);
   return (
-    <div className="navbar md:w-10/12 mx-auto py-4">
+    <div className="navbar md:w-10/12 mx-auto py-4 lg:py-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,10 +73,10 @@ export const Navbar = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl gap-0">
-          <img className="w-14" src={logo} alt="" />
-          <span className="text-2xl font-bold">Lingo Bingo</span>
-        </a>
+        <Link className="flex items-center">
+          <img className="w-14 hidden md:block" src={logo} alt="" />
+          <span className="md:text-2xl text-sm font-bold">Lingo Bingo</span>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-6">
@@ -125,6 +125,18 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        {user && (
+          <p className="text-center text-sm font-semibold mr-4 hidden md:block">
+            Welcome <br /> {user?.displayName}
+          </p>
+        )}
+        {user && (
+          <img
+            className="rounded-full w-14 h-14 mr-4"
+            src={user?.photoURL}
+            alt=""
+          />
+        )}
         {user ? (
           <button
             onClick={handleSignout}

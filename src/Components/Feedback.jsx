@@ -4,7 +4,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 export const Feedback = () => {
   return (
-    <div className="w-11/12 md:w-10/12 mx-auto pb-10 lg:pb-20">
+    <div className="w-11/12 md:w-10/12 mx-auto pb-20 md:pb-32 pt-10">
       <Title
         heading={"FeedBack"}
         pera={

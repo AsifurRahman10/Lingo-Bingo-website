@@ -42,7 +42,7 @@ export const Success = () => {
           <div>
             <CountUp
               className="text-4xl font-bold text-white"
-              end={200}
+              end={2000000}
               duration={2}
             ></CountUp>
             <p className="text-xl font-medium text-gray-200">Vocabulary</p>

@@ -11,14 +11,20 @@ import bannner8 from "../assets/banner-1.jpg";
 import bannner9 from "../assets/banner-9.jpg";
 import bannner10 from "../assets/banner-10.png";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const StartLearning = () => {
   return (
     <div className="bg-pastelYellow pb-20">
+      <HelmetProvider>
+        <Helmet>
+          <title>Start learning - Lingo Bingo</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="w-11/12 md:w-10/12 mx-auto pb-10">
         <Title heading={"Lets Start"}></Title>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Link to={`/lesson/${1}`} data-aos="fade-left">
+          <Link to={`/lesson/${1}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -33,7 +39,7 @@ export const StartLearning = () => {
             </div>
           </Link>
 
-          <Link to={`/lesson/${2}`} data-aos="fade-left">
+          <Link to={`/lesson/${2}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -47,7 +53,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${3}`} data-aos="fade-left">
+          <Link to={`/lesson/${3}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -61,7 +67,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${4}`} data-aos="fade-left">
+          <Link to={`/lesson/${4}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -75,7 +81,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${5}`} data-aos="fade-left">
+          <Link to={`/lesson/${5}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -89,7 +95,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${6}`} data-aos="fade-left">
+          <Link to={`/lesson/${6}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -103,7 +109,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${7}`} data-aos="fade-left">
+          <Link to={`/lesson/${7}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -117,7 +123,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${8}`} data-aos="fade-left">
+          <Link to={`/lesson/${8}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -131,7 +137,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${9}`} data-aos="fade-left">
+          <Link to={`/lesson/${9}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -145,7 +151,7 @@ export const StartLearning = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/lesson/${10}`} data-aos="fade-left">
+          <Link to={`/lesson/${10}`}>
             <div className="card bg-white shadow-xl">
               <figure>
                 <img
@@ -167,10 +173,7 @@ export const StartLearning = () => {
         pera={"You can start's by learning by this alphabet learning tutorial"}
       ></Title>
 
-      <div
-        className="w-9/12 md:h-[300px] lg:h-[600px] mx-auto"
-        data-aos="fade-left"
-      >
+      <div className="w-9/12 md:h-[300px] lg:h-[600px] mx-auto pb-20">
         <iframe
           width="100%"
           height="100%"
