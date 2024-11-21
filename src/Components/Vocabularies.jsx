@@ -29,7 +29,7 @@ export const Vocabularies = ({ singleData }) => {
 
   const pronounceWord = (pronunciation) => {
     const utterance = new SpeechSynthesisUtterance(pronunciation);
-    utterance.lang = "ja-JP";
+    utterance.lang = "de-DE";
     window.speechSynthesis.speak(utterance);
   };
 
