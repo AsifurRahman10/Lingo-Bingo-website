@@ -1,15 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export const Navbar = () => {
   const { user, handleSignout } = useContext(AuthContext);
+  const [close, setClose] = useState(false);
   return (
     <div className="navbar md:w-10/12 mx-auto py-4 lg:py-6">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+            onClick={() => setClose(!close)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -27,7 +33,9 @@ export const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-40 p-4 shadow"
+            className={`menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-40 p-4 shadow ${
+              close ? "hidden" : ""
+            }`}
           >
             <NavLink
               to={"/"}

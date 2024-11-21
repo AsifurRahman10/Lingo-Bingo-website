@@ -3,10 +3,12 @@ import english from "../assets/english.png";
 import german from "../assets/german.png";
 import { GiSpeaker } from "react-icons/gi";
 import { Modal } from "./Modal";
+import { useNavigate } from "react-router-dom";
 
 export const Vocabularies = ({ singleData }) => {
   const [modalData, setModalData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const {
     word,
     pronunciation,
@@ -38,6 +40,7 @@ export const Vocabularies = ({ singleData }) => {
   const handleModalClose = () => {
     setModalData(null);
     setIsModalOpen(false);
+    navigate("/startLearning");
   };
   return (
     <div
@@ -48,11 +51,11 @@ export const Vocabularies = ({ singleData }) => {
         <div className="flex justify-between">
           <span className="flex items-center gap-2">
             <img className="w-10 h-10 rounded-full" src={german} alt="" />
-            <span className="text-3xl font-bold">{word}</span>
+            <span className="text-lg md:text-3xl font-bold">{word}</span>
           </span>
           <span className="flex items-center gap-2">
             <img className="w-10 h-10 rounded-full" src={english} alt="" />
-            <span className="text-3xl font-bold">{meaning}</span>
+            <span className="text-lg md:text-3xl font-bold">{meaning}</span>
           </span>
         </div>
       </div>
@@ -67,12 +70,6 @@ export const Vocabularies = ({ singleData }) => {
         <p className="font-medium">
           Part of speech : <span className="font-bold">{part_of_speech}</span>
         </p>
-        {/* <p className="font-medium">
-          When to say : <span className="font-bold">{when_to_say}</span>
-        </p>
-        <p className="font-medium">
-          Example : <span className="font-bold">{example}</span>
-        </p> */}
         <button
           onClick={handleModal}
           className="btn mt-2 bg-transparent border-black"

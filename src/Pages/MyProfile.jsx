@@ -7,7 +7,7 @@ export const MyProfile = () => {
   const { user } = useContext(AuthContext);
   if (user)
     return (
-      <div className=" bg-pastelYellow min-h-[calc(100vh-336px)] pb-20 md:pb-0">
+      <div className=" bg-pastelYellow min-h-[calc(100vh-336px)] pb-20 md:pb-10 lg:pb-0">
         <HelmetProvider>
           <Helmet>
             <title>Welcome {user.displayName} - Lingo Bingo</title>

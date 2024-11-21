@@ -50,7 +50,7 @@ export const Success = () => {
           <TbVocabulary className="text-8xl text-white" />
           <div>
             <CountUp
-              className="text-4xl font-bold text-white"
+              className="md:text-2xl text-4xl font-bold text-white"
               end={2000000}
               duration={2}
             ></CountUp>

@@ -3,7 +3,7 @@ import React from "react";
 export const Modal = ({ word, meaning, when_to_say, example, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-4 md:p-12 rounded-md shadow-lg">
+      <div className="bg-white p-4 md:p-12 rounded-md shadow-lg mx-6 md:mx-0">
         <h3 className="text-lg mb-4">
           Word: <span className="font-bold">{word}</span>
         </h3>

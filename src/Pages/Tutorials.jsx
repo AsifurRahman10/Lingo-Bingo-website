@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Tutorials = () => {
   return (
     <div className="bg-pastelYellow pb-20">
-      <div className="w-11/12 md:w-9/12 mx-auto pb-10 space-y-6">
+      <div className="w-11/12 md:w-9/12 mx-auto pt-3 md:pb-10 space-y-6">
         <div>
           <h1 className="text-2xl py-4 font-bold">
             LEARN GERMAN FOR BEGINNERS LESSONS - 1

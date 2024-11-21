@@ -98,7 +98,7 @@ export const ForgetPassword = () => {
           <form onSubmit={handleForgetPassword}>
             <input
               type="email"
-              placeholder={emailValue || "Enter your email"}
+              placeholder={emailValue ? emailValue : "Enter your email"}
               name="email"
               className={`input input-bordered w-full md:w-11/12 border-none text-sm mt-4 ${
                 emailValue ? "placeholder:text-black" : ""

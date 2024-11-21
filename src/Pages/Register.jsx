@@ -34,13 +34,11 @@ export const Register = () => {
       return;
     }
     const name = firstName + " " + lastName;
-    emailRegistration(email, password, name, photo)
+    emailRegistration(email, password)
       .then((res) => {
         updateProfileNamePhoto(name, photo).then((res) => {
-          setUser({
-            ...user,
-            displayName: name,
-            photoURL: photo,
+          setUser((prevUser) => {
+            return { ...prevUser, displayName: name, photoURL: photo };
           });
           navigate("/");
           useLoading(false);
