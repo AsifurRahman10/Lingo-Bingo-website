@@ -12,6 +12,7 @@ export const Register = () => {
     setUser,
     user,
     useLoading,
+    updateProfileNamePhoto,
   } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);

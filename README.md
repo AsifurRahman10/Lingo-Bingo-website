@@ -59,3 +59,65 @@ After logging in, visit **My Profile** to:
 - **Routing:** React Router DOM
 - **Head Management:** React Helmet Async
 - **UI Enhancements:** React Icons, React Spinners
+
+## Running the Project Locally
+
+To run this project locally, follow these steps:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/AsifurRahman10/ArtifactArcade-website-client.git
+cd ArtifactArcade-website-client
+```
+
+### 2. Install Dependencies
+
+Frontend
+Navigate to the frontend folder and install the required dependencies:
+
+```
+cd frontend
+npm install
+```
+
+### 3. Setup Environment Variables
+
+You need to create a .env file for both the frontend and backend with the necessary environment variables.
+
+Frontend:
+Firebase credentials
+API keys for any other integrations (if needed)
+Backend:
+Create a .env file in the backend folder with the following variables and set up accordingly:
+
+```
+
+VITE_FIREBASE_API_KEY=your-firebase-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+VITE_FIREBASE_PROJECT_ID=your-firebase-project-id
+VITE_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+VITE_FIREBASE_APP_ID=your-firebase-app-id
+VITE_STRIPE_KEY=your-stripe-api-key
+VITE_DB_URL=your-database-url
+
+```
+
+```
+
+### 4. Running the Project
+
+After setting up the environment variables, you can start the project by running the following commands:
+Frontend
+In the frontend folder, run:
+
+```
+
+bash
+npm run dev
+
+```
+
+The frontend will be available at http://localhost:3000,
+```

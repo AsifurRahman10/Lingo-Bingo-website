@@ -57,15 +57,17 @@ const AuthProvider = ({ children }) => {
   const handleSignout = () => {
     signOut(auth);
   };
+
   // observer
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser?.email) {
         setUser(currentUser);
-        console.log(currentUser);
       } else {
+        console.log(currentUser);
         setUser(null);
       }
+
       useLoading(false);
     });
     return () => unsubscribe();
