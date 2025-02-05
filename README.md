@@ -1,5 +1,7 @@
 # Lingo-Bingo 🎯
 
+![Homepage](https://i.ibb.co.com/kgNTRcLL/li.png)
+
 **Lingo-Bingo** is an interactive e-learning platform designed to make learning the German language fun and accessible. With a rich vocabulary bank, expert support, and engaging lessons, you can master German at your own pace.
 
 🌐 **Live Demo:** [Lingo-Bingo](https://lingobingogerman.netlify.app/)
